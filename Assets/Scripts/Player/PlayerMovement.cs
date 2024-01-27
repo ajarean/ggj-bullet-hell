@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake() {
         _rigidbody = GetComponent<Rigidbody2D>();
+        Debug.Log("Script called");
     }
 
     private void FixedUpdate() {
