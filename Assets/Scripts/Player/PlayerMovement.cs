@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Collision with bullet detected.");
             // Perform actions when colliding with an enemy
-            Destroy(gameObject); // Destroy the bullet
+            SceneManager.LoadScene("DeathScreen");
+
         }
     }
 }
