@@ -62,18 +62,20 @@ public class BulletSpawner : MonoBehaviour
             SpawnerState = (SpawnerType)Random.Range(1, 4);
             switch(SpawnerState){
                 case SpawnerType.Straight:
-                    numberOfBullets = Random.Range(3,4);
-                    fireRate = Random.Range(1f,1.5f);
+                    // numberOfBullets = Random.Range(3,5);
+                    numberOfBullets = 1;
+                    // fireRate = Random.Range(0.5f,1f);
+                    fireRate = 0.25f;
                 break;
 
                 case SpawnerType.Spin:
-                    numberOfBullets = Random.Range(6,10);
-                    fireRate = Random.Range(0.2f,0.5f);
+                    numberOfBullets = Random.Range(8,10);
+                    fireRate = Random.Range(0.2f,0.3f);
                 break;
 
                 case SpawnerType.Spread:
                     numberOfBullets = Random.Range(3,6);
-                    fireRate = Random.Range(0.3f,1f);
+                    fireRate = Random.Range(0.3f,0.5f);
                 break;
             }
             firingTimer = 0;
