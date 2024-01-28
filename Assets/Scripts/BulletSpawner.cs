@@ -91,6 +91,7 @@ public class BulletSpawner : MonoBehaviour
             spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, CalculateAngleToMouse(mousePosition)));
             spawnedBullet.GetComponent<Bullet>().speed = speed;
             spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+            spawnedBullet.tag = "Bullet";
             yield return wait;
         }
     }
@@ -102,6 +103,7 @@ public class BulletSpawner : MonoBehaviour
                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle + transform.eulerAngles.z));;
                 spawnedBullet.GetComponent<Bullet>().speed = speed;
                 spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                spawnedBullet.tag = "Bullet";
             }
         }
     }
@@ -121,6 +123,7 @@ public class BulletSpawner : MonoBehaviour
                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
                 spawnedBullet.GetComponent<Bullet>().speed = speed;
                 spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                spawnedBullet.tag = "Bullet";
             }
         }
     }
