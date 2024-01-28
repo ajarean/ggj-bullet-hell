@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletLife = 1f;
-    public float roation = 0f;
-    public float speed = 1f;
+    public float bulletLife = 99999f; //99999
+    public float roation = 0f; //0
+    public float speed = 5f; //5
 
     private Vector2 spawnpoint;
     private float timer = 0f;
