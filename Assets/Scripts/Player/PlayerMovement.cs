@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Collision with bullet detected.");
             // Perform actions when colliding with an enemy
-            SceneManager.LoadScene("DeathScreen");
+            
+            // SceneManager.LoadScene("DeathScreen");
 
         }
     }
