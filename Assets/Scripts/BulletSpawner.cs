@@ -20,6 +20,7 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1f; //i put it as 0.2 in the inspector
 
     [SerializeField] private int firingTime = 5; //time interval between firing modes
+    [SerializeField] private GameObject player;
 
     private GameObject spawnedBullet;
     private float timer = 0f;
@@ -88,7 +89,8 @@ public class BulletSpawner : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(burstTime);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         for(int i = 0; i< numberOfBullets; i++){
-            spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, CalculateAngleToMouse(mousePosition)));
+            // spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, CalculateAngleToMouse(mousePosition)));
+            spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, CalculateAngleToPlayer()));
             spawnedBullet.GetComponent<Bullet>().speed = speed;
             spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
             yield return wait;
@@ -113,10 +115,12 @@ public class BulletSpawner : MonoBehaviour
             if (bullet){
                 float angle;
                 if(numberOfBullets % 2 == 0){
-                    angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 15f + 7.5f;
+                    // angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 15f + 7.5f;
+                    angle = CalculateAngleToPlayer() + (i-numberOfBullets/2) * 15f + 7.5f;
                 }
                 else{
-                    angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 15f;     
+                    // angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 15f;     
+                    angle = CalculateAngleToPlayer() + (i-numberOfBullets/2) * 15f;  
                 }
                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
                 spawnedBullet.GetComponent<Bullet>().speed = speed;
@@ -125,8 +129,13 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    private float CalculateAngleToMouse(Vector3 mousePosition){
+    private float CalculateAngleToMouse(Vector3 mousePosition){ //change this to track player position instead
         Vector2 direction = mousePosition - transform.position;
+        return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    }
+    private float CalculateAngleToPlayer(){
+        Vector3 playerPosition = player.transform.position;
+        Vector2 direction = playerPosition - transform.position;
         return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     }
 }
