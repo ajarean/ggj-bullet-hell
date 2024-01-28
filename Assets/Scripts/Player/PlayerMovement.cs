@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake() {
         _rigidbody = GetComponent<Rigidbody2D>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         Debug.Log("Script called");
     }
 
