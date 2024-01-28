@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLife: 99999
   roation: 0
-  speed: 10
+  speed: 5
 --- !u!1 &1051673123
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,10 +346,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 893755779}
   bulletLife: 5
-  speed: 10
+  speed: 5
   spawnerType: 1
-  fireRate: 0.2
-  numberOfBullets: 5
+  fireRate: 0.25
+  numberOfBullets: 8
+  rotationSpeed: 0.2
+  firingTime: 20
 --- !u!1 &1879844660
 GameObject:
   m_ObjectHideFlags: 0
