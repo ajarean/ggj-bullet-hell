@@ -27,13 +27,8 @@ public class BulletSpawner : MonoBehaviour
     private int timeInSeconds;
     // Start is called before the first frame update
     void Start(){
-        //SpawnerState = SpawnerType.Straight;
         // SpawnerState = (SpawnerType)Random.Range(0, Enum.GetNames(typeof(SpawnerType)).Length);
         SpawnerState = (SpawnerType)Random.Range(1, 4);
-        
-        // Debug.Log((int)SpawnerType.init); 0
-        // Debug.Log((int)SpawnerType.Straight); 1
-        // Debug.Log((int)SpawnerType.Spin); 2
         Debug.Log((int)SpawnerType.Spread);
     }
 
@@ -64,16 +59,30 @@ public class BulletSpawner : MonoBehaviour
         //Debug.Log(firingTimer%60); //THIS GIVES TIME IN SECONDS
         if(firingTimer%60 >= firingTime){
             //assign a new SpawnerType
-            // SpawnerState = (SpawnerType)Random.Range(0, Enum.GetValues(typeof(SpawnerType)).Length);
             SpawnerState = (SpawnerType)Random.Range(1, 4);
+            switch(SpawnerState){
+                case SpawnerType.Straight:
+                    numberOfBullets = Random.Range(3,4);
+                    fireRate = Random.Range(1f,1.5f);
+                break;
+
+                case SpawnerType.Spin:
+                    numberOfBullets = Random.Range(6,10);
+                    fireRate = Random.Range(0.2f,0.5f);
+                break;
+
+                case SpawnerType.Spread:
+                    numberOfBullets = Random.Range(3,6);
+                    fireRate = Random.Range(0.3f,1f);
+                break;
+            }
             firingTimer = 0;
         }
 
     }
 
     private IEnumerator FireStraight(float burstTime){
-        //burst fire, num bullets is burst count
-        // Debug.Log("firestraight called");
+        //burst fire, num bullets is burst counter
         WaitForSeconds wait = new WaitForSeconds(burstTime);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         for(int i = 0; i< numberOfBullets; i++){
@@ -102,10 +111,10 @@ public class BulletSpawner : MonoBehaviour
             if (bullet){
                 float angle;
                 if(numberOfBullets % 2 == 0){
-                    angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 10f + 5f;
+                    angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 15f + 7.5f;
                 }
                 else{
-                    angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 10f;     
+                    angle = CalculateAngleToMouse(mousePosition) + (i-numberOfBullets/2) * 15f;     
                 }
                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
                 spawnedBullet.GetComponent<Bullet>().speed = speed;
