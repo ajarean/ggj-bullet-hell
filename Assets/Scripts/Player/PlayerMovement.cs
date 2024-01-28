@@ -23,8 +23,18 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue inputValue) {
         Vector2 vector = inputValue.Get<Vector2>();
         _movementInput = vector;
-        Debug.Log("input detected. Magnitude(" + vector.x + ", " + vector.y);
+        // Debug.Log("input detected. Magnitude(" + vector.x + ", " + vector.y);
 
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        // Check if the other collider is an enemy, obstacle, or any other object you want to interact with
+        if (other.CompareTag("Bullet"))
+        {
+            Debug.Log("Collision with bullet detected.");
+            // Perform actions when colliding with an enemy
+            Destroy(gameObject); // Destroy the bullet
+        }
     }
 }
 

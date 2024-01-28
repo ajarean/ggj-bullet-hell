@@ -46,6 +46,7 @@ public class BulletSpawner : MonoBehaviour
                 spawnedBullet.GetComponent<Bullet>().speed = speed;
                 spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
                 spawnedBullet.transform.rotation = transform.rotation;
+                spawnedBullet.tag = "Bullet";
             }
         }
 
