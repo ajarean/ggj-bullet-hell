@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/GameScreenCollision.unity
-    guid: d968588f3045a49b6b0322d4d16afddf
-  - enabled: 1
-    path: Assets/Scenes/DeathScreen.unity
-    guid: 9e0aa08d4051843c088ec2fbfda4668d
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 8155a848414082d45aba9cfcf0ee89b9
   - enabled: 1
     path: Assets/Scenes/TingExampleUI.unity
     guid: b6dd52595fc8752439e1ceb7a58c91f6
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
-    guid: 8155a848414082d45aba9cfcf0ee89b9
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 9e0aa08d4051843c088ec2fbfda4668d
+  - enabled: 0
+    path: Assets/Scenes/GameScreenCollision.unity
+    guid: d968588f3045a49b6b0322d4d16afddf
   m_configObjects: {}
