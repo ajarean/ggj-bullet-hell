@@ -6,13 +6,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: thinghehe_0
+  m_Name: thinglaugh_0 1
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: New Layer
-    m_StateMachine: {fileID: 3661705393679234805}
+    m_Name: Base Layer
+    m_StateMachine: {fileID: 2478124314293353138}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,18 +22,18 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1107 &3661705393679234805
+--- !u!1107 &2478124314293353138
 AnimatorStateMachine:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Layer
+  m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 5758039207345764046}
-    m_Position: {x: 325.4071, y: 99.64169, z: 0}
+    m_State: {fileID: 7350274595718989098}
+    m_Position: {x: 200, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -43,15 +43,15 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 5758039207345764046}
---- !u!1102 &5758039207345764046
+  m_DefaultState: {fileID: 7350274595718989098}
+--- !u!1102 &7350274595718989098
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hehe
+  m_Name: laugh
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7b167a37fb3db0c45937516a3df7aab8, type: 2}
+  m_Motion: {fileID: 7400000, guid: e30de52c29151004e926c1a6da493714, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -7,11 +7,12 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
 
     public int score = 0;
-    public int hiScore = 0;
+    public PlayerMovement player;
+    // public int hiScore = 0;
     [SerializeField] TextMeshProUGUI scoreText; //I LOVE VIOLATING EVERY SOLID PRINCIPLE IN MY CODE
     private float timer = 0;
 
-    private bool playerNotDead = true;
+    // private bool playerNotDead = true;
     void Start()
     {
         
@@ -20,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerNotDead){
+        if(player.health >= 1){
             timer += Time.deltaTime;
             if(timer%60 >= 1){
                 score += 5;
@@ -29,8 +30,13 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = score.ToString();
         }
         else{ //you are dead
-            if(score > hiScore){
-                hiScore = score;
+            ResultsManager.AddDeath();
+            int previousHighScore = ResultsManager.GetHighScore();
+
+            if (score > previousHighScore)
+            {
+                ResultsManager.SaveHighScore(score);
+                Debug.Log("New High Score:" + score);
             }
             score = 0;
             timer = 0;
